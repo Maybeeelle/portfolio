@@ -9,7 +9,6 @@ export default function Bubbles() {
   // Create a bubble generator on mount
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
     
     // Set canvas dimensions to match window
     const resizeCanvas = () => {
@@ -71,24 +70,6 @@ export default function Bubbles() {
     };
   }, [bubbles, isPaused]);
   
-  // Create a new bubble
-  const createBubble = (width, height, fromBottom = false) => {
-    const w = width || (canvasRef.current?.width || window.innerWidth);
-    const h = height || (canvasRef.current?.height || window.innerHeight);
-    
-    const size = Math.random() * 30 + 10; // Bubble size between 10-40px
-    
-    return {
-      x: Math.random() * w,
-      y: fromBottom ? h + size * 2 : Math.random() * h,
-      size: size,
-      speed: Math.random() * 1 + 0.5, // Speed between 0.5-1.5
-      color: getRandomPastelColor(),
-      opacity: Math.random() * 0.4 + 0.1, // Opacity between 0.1-0.5
-      angle: Math.random() * Math.PI * 2, // Random starting angle for wobble
-      wobbleSpeed: Math.random() * 0.02 + 0.01 // Random wobble speed
-    };
-  };
   
   // Draw a bubble
   const drawBubble = (ctx:any, bubble:any) => {

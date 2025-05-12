@@ -12,7 +12,6 @@ interface Skill {
 
 const CozyBrownSkills: React.FC = () => {
   const [activeSkill, setActiveSkill] = useState<string | null>(null);
-  const [skillPoints, setSkillPoints] = useState<number>(5);
 
   const technicalSkills: Skill[] = [
     { id: 'python', name: 'Python', level: 7, maxLevel: 10, description: 'Python is the first language that I learned, I used to make school projects using it', color: 'chocolate', icon: '🍪' },

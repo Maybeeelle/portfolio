@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaGithub } from 'react-icons/fa';
-import { Playfair_Display, Comic_Neue } from 'next/font/google'
+import { Comic_Neue } from 'next/font/google'
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
