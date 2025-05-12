@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 import { Sparkles } from 'lucide-react'
 import FlipWords from '../ui/Flipwords'
@@ -34,28 +36,29 @@ const AboutMe = () => {
             <span className="text-blue-600 underline decoration-wavy">Hi there!</span>
           </div>
           <div className="flex flex-col items-center justify-center text-center px-2">
-  <div className="font-bold text-2xl md:text-4xl lg:text-5xl text-blue-700 mb-2">
-    I am Maybelle and I am a
-  </div>
-  <div className="relative flex items-center justify-center">
-    <span className="text-3xl md:text-5xl font-extrabold text-blue-800">
-      <FlipWords words={words} />
-    </span>
-    <Sparkles className="absolute -top-3 -right-4 text-yellow-500" size={24} />
-  </div>
-</div>
+        <div className="font-bold text-2xl md:text-4xl lg:text-5xl text-blue-700 mb-2">
+          I am Maybelle and I am a
+        </div>
+        <div className="relative flex items-center justify-center">
+          <span className="text-3xl md:text-5xl font-extrabold text-blue-800">
+            <FlipWords words={words} />
+          </span>
+          <Sparkles className="absolute -top-3 -right-4 text-yellow-500" size={24} />
+        </div>
+      </div>
 
         </div>
 
         {/* Description Bubble */}
         <div className="bg-blue-100 p-6 md:p-8 rounded-3xl border-4 border-blue-400 shadow-lg mx-2 md:mx-10 mt-6 relative">
-          <p className={`text-lg md:text-2xl font-semibold md:font-bold text-blue-800 leading-relaxed z-10 ${comicNeue.className}`}>
+        <p className={`text-lg md:text-2xl font-semibold md:font-bold text-blue-800 leading-relaxed z-10 ${comicNeue.className}`}>
             A Computer Science student who loves turning 
-            ideas into code. Whether it's <span className="text-blue-600 underline decoration-wavy">web apps</span>, 
+            ideas into code. Whether it&apos;s <span className="text-blue-600 underline decoration-wavy">web apps</span>, 
             <span className="bg-green-200 px-2 mx-1 rounded-lg">smart tech</span>, 
-            or solving <span className="bg-yellow-200 px-2 mx-1 rounded-lg">tricky bugs</span>—I'm all in! 
+            or solving <span className="bg-yellow-200 px-2 mx-1 rounded-lg">tricky bugs</span>&mdash;I&apos;m all in! 
             Take a <span className="text-pink-600 font-extrabold">look around!</span>
           </p>
+
         </div>
       </div>
     </div>
