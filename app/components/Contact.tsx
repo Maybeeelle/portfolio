@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+
 
 const ContactMe = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -7,10 +9,25 @@ const ContactMe = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("✨ Message sent! I’ll get back to you from my quest soon!");
-    setForm({ name: '', email: '', message: '' });
+
+    emailjs.send(
+      'service_mbm2lta',       // e.g. 'gmail'
+      'template_wiitp57',      // e.g. 'contact_form'
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },
+      'akdTUBwNOp4KUOKkn'        // found in EmailJS dashboard
+    ).then(() => {
+      alert('✅ Message sent!');
+      setForm({ name: '', email: '', message: '' });
+    }).catch((error) => {
+      console.error('❌ Failed to send message:', error);
+      alert('Failed to send message. Try again later.');
+    });
   };
 
   return (
