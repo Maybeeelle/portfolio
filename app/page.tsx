@@ -36,7 +36,7 @@ const Home = () => {
     }
   };
 
-  const handleAboutMeClick = (e) => {
+  const handleAboutMeClick = (e:any) => {
     handleOptionClick(() => {
       setSeeAboutMe(true)
       setSeeContacts(false)
@@ -45,7 +45,7 @@ const Home = () => {
     }, e.currentTarget, 'hsla(350, 100%, 75%'); // Pink color
   }
 
-  const handleSkillsClick = (e) => {
+  const handleSkillsClick = (e:any) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(false)
@@ -54,7 +54,7 @@ const Home = () => {
     }, e.currentTarget, 'hsla(280, 100%, 75%'); // Purple color
   }
 
-  const handleProjectsClick = (e) => {
+  const handleProjectsClick = (e:any) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(false)
@@ -63,7 +63,7 @@ const Home = () => {
     }, e.currentTarget, 'hsla(210, 100%, 75%'); // Blue color
   }
 
-  const handleSeeContactClick = (e) => {
+  const handleSeeContactClick = (e:any) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(true)
