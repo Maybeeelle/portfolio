@@ -2,11 +2,12 @@
 import React,{useState} from 'react'
 import Navbar from './components/Navbar'
 import FlipWords from './ui/Flipwords'
-import { Crown, Star } from 'lucide-react';
+import { Contact, Crown, Star } from 'lucide-react';
 import { Coffee, Terminal } from 'lucide-react';
 import GameCharacterCard from './components/Profile';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import ContactMe from './components/Contact';
 
 
 
@@ -183,7 +184,7 @@ const Home = () => {
             {/* Inner Dashed Border */}
             <div className="absolute inset-2 border-6 border-dashed border-[#e7a789] rounded-xl z-0"></div>
           {/* LEFT SIDE */}
-          <Projects/>
+          <ContactMe/>
           
 
         </div>
