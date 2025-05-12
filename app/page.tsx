@@ -175,64 +175,24 @@ const Home = () => {
           </div>
         </div>
         }
-{seeContacts && (
-        <div className="flex flex-row pt-0 mt-0">
+{seeContacts && 
+  <div className="flex flex-row pt-0 mt-0">
           {/* LEFT SIDE */}
           <div className="flex-1 bg-white border-6 border-[#A0522D] rounded-xl shadow-md text-center flex flex-col justify-center relative m-4 p-4">
             
             {/* Inner Dashed Border */}
             <div className="absolute inset-2 border-6 border-dashed border-[#e7a789] rounded-xl z-0"></div>
-
-            {/* Bubbles */}
-            <div className="absolute -top-1 -left-3 w-8 h-8 bg-blue-300 rounded-full opacity-60"></div>
-            <div className="absolute top-1/4 right-6 w-6 h-6 bg-blue-200 rounded-full opacity-60"></div>
-            <div className="absolute bottom-4 left-8 w-5 h-5 bg-blue-300 rounded-full opacity-60"></div>
-            <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-blue-200 rounded-full opacity-60"></div>
-
-            {/* Main Content */}
-            <div className="relative z-10 max-w-2xl mx-auto">
-              {/* About Me Badge */}
-              <div className="flex justify-center mt-1">
-                <div className="bg-gradient-to-r from-green-300 to-green-500 px-8 py-3 rounded-full border-4 border-green-600 shadow-xl transform hover:scale-110 transition-transform relative overflow-hidden">
-                  {/* Decorative Stars */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-yellow-300 rounded-full opacity-20"></div>
-                  <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-yellow-300 rounded-full opacity-20"></div>
-                  <div className="absolute top-1 left-1 text-yellow-300 text-xs">★</div>
-                  <div className="absolute top-1 right-1 text-yellow-300 text-xs">★</div>
-                  <div className="absolute bottom-1 left-8 text-yellow-300 text-xs">★</div>
-                  <div className="absolute bottom-1 right-8 text-yellow-300 text-xs">★</div>
-
-                  <p className="text-2xl text-white font-black tracking-wider">About Me</p>
-                </div>
-              </div>
-
-              {/* FlipWords */}
-              <div className="transform scale-125 mb-6 mt-4">
-                <FlipWords words={words} />
-              </div>
-
-              {/* Description Bubble */}
-              <div className="bg-blue-100 p-6 rounded-3xl border-4 border-blue-400 shadow-lg mt-6 animate-pulse relative">
-                <p className="text-2xl font-bold font-[Comic Neue] text-blue-800 leading-relaxed p-2 relative z-10">
-                  Welcome to my <span className="text-blue-600 underline decoration-wavy">game-inspired</span> portfolio!
-                  I'm a <span className="text-pink-600 font-extrabold">passionate developer</span> who loves creating
-                  <span className="bg-yellow-200 px-2 mx-1 rounded-lg">interactive</span>,
-                  <span className="bg-green-200 px-2 mx-1 rounded-lg">engaging</span> and
-                  <span className="bg-green-200 px-2 mx-1 rounded-lg">fun</span> user experiences!
-                </p>
-              </div>
-            </div>
-          </div>
-
+          {/* LEFT SIDE */}
+          <Projects/>
           
 
-          {/* RIGHT SIDE */}
-          <div className="flex justify-center items-center m-4">
+        </div>
+                  {/* RIGHT SIDE */}
+                  <div className="flex justify-center items-center m-4">
           <GameCharacterCard />
           </div>
         </div>
-      )}
-
+        }
         {/* Bottom Section - Fixed Height */}
       {/* Game-Style Bottom Section - Fixed Height */}
       <div className="flex flex-col md:flex-row gap-4 pb-4">

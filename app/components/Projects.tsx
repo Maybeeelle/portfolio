@@ -16,102 +16,60 @@ interface Project {
 
 // Sample project data
 const initialProjects: Project[] = [
-  {
+  { 
     id: 1,
-    name: 'Magical Todo App',
-    description: 'A whimsical task management app with cute animations and sparkly completions!',
-    technologies: ['React', 'TypeScript', 'Tailwind'],
-    githubLink: 'https://github.com/yourusername/magical-todo',
+    name: 'Tidal Tidying',
+    description: 'A platformer game made by using Godot Engine. Submitted to Alliance Française de Manille Game Jam 2023 and won 1st place. This game aims to promote marine life reservation by collecting trashes and tidying the marine environment.',
+    technologies: ['Godot Script', 'Godot'],
+    liveLink: 'https://isenpachi.itch.io/tidal-tidying',
     difficulty: 'Medium',
     icon: <Grid className="w-12 h-12" />,
     color: 'purple'
   },
   {
     id: 2,
-    name: 'Pixel Pet Tracker',
-    description: 'Adorable virtual pet that grows based on your coding progress!',
-    technologies: ['Next.js', 'Firebase', 'Framer Motion'],
-    githubLink: 'https://github.com/yourusername/pixel-pet',
+    name: 'World Hell',
+    description: 'A game created using Java and JavaFXGL. The world has come to an end. A zombie apocalypse corrupts it.The main goal is to kill zombie, fight back and stay alive until the rescuer come to get you after 9 minutes. You can get loots and power ups by killing the zombie that can increase the chances of your survival.',
+    technologies: ['Java', 'JavaFXG'],
+    githubLink: 'https://github.com/Maybeeelle/world-hell',
     difficulty: 'Hard',
     icon: <Box className="w-12 h-12" />,
     color: 'green'
   },
   {
     id: 3,
-    name: 'Rainbow Calculator',
+    name: 'SDG 17 Website',
     description: 'A playful calculator with cute sound effects and colorful design',
-    technologies: ['Vue.js', 'TypeScript', 'CSS Animations'],
-    liveLink: 'https://rainbow-calculator.netlify.app',
+    technologies: ['JavaScript', 'CSS Animations', 'CSS', 'HTML'],
+    githubLink: 'https://github.com/Maybeeelle/SDG-17',
     difficulty: 'Easy',
     icon: <Star className="w-12 h-12" />,
     color: 'yellow'
   },
   {
     id: 4,
-    name: 'Cosmic Messenger',
-    description: 'A delightful chat app with space-themed interactions and cute animations',
-    technologies: ['React', 'Socket.io', 'Tailwind'],
-    githubLink: 'https://github.com/yourusername/cosmic-messenger',
+    name: 'Student Management System',
+    description: 'It was made using JavaScript, React and MongoDB. This system will facilitate the efficient management of student information, and subject grades, and provide essential functionalities such as adding, editing, and removing students, subjects, and grades. Additionally, the system will support grade summaries, remarks, rolebased access, and historical data tracking.',
+    technologies: ['React', 'JavaScript', 'HTML', 'CSS'],
     difficulty: 'Medium',
     icon: <Heart className="w-12 h-12" />,
     color: 'pink'
   },
   {
     id: 5,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
+    name: 'Rizal’s 3D Realm: Capture History',
+    description: 'Developed an educational game centered on Rizal’s life with the team M3RJ Conflict for the Game Game Plus Philippines 2024. Handled 2D Assets from itch.io and developed the gameplay mechanics using GDScript in Godot 4.',
+    technologies: ['Godot', 'Godot Script'],
+    liveLink: 'https://isenpachi.itch.io/rizals-3d-realm-capture-history',
     difficulty: 'Hard',
     icon: <Gamepad className="w-12 h-12" />,
     color: 'blue'
   },
   {
     id: 6,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
-    difficulty: 'Hard',
-    icon: <Gamepad className="w-12 h-12" />,
-    color: 'blue'
-  },
-  {
-    id: 7,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
-    difficulty: 'Hard',
-    icon: <Gamepad className="w-12 h-12" />,
-    color: 'blue'
-  },
-  {
-    id: 8,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
-    difficulty: 'Hard',
-    icon: <Gamepad className="w-12 h-12" />,
-    color: 'blue'
-  },
-  {
-    id: 9,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
-    difficulty: 'Hard',
-    icon: <Gamepad className="w-12 h-12" />,
-    color: 'blue'
-  },
-  {
-    id: 10,
-    name: 'Game Level Builder',
-    description: 'An interactive tool for designing 2D game levels with real-time preview',
-    technologies: ['Electron', 'Canvas', 'TypeScript'],
-    githubLink: 'https://github.com/yourusername/game-level-builder',
+    name: 'Farm-On-table',
+    description:'Designed and developed the backend infrastructure and Database Model for Farm-on-Table using JavaScript,MongoDB,Express.js and Node.js, a web platform facilitating direct transactions between farmers and consumers, independently using MERN Stac',
+    technologies: ['MongoDB', 'Atlas','Tailwind', 'TypeScript', 'Node.js'],
     difficulty: 'Hard',
     icon: <Gamepad className="w-12 h-12" />,
     color: 'blue'
@@ -178,7 +136,7 @@ const Projects: React.FC = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-purple-600 mb-8 sm:mb-12 
           drop-shadow-lg flex items-center justify-center space-x-2 sm:space-x-4">
           <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" fill="currentColor" />
-          <span>My Project Playground</span>
+          <span>Project Adventures</span>
           <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-pink-400" fill="currentColor" />
         </h1>
 
@@ -232,8 +190,8 @@ const Projects: React.FC = () => {
 
         {/* Project Details Modal */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full relative">
+          <div className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full relative pointer-events-auto shadow-2xl">
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedProject(null)}
