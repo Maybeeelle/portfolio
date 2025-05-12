@@ -1,66 +1,83 @@
 import React, { useState } from 'react';
 
-const CozyBrownSkills = () => {
-  const [activeSkill, setActiveSkill] = useState(null);
-  const [skillPoints, setSkillPoints] = useState(5);
+interface Skill {
+  id: string;
+  name: string;
+  level: number;
+  maxLevel: number;
+  description: string;
+  color: string;
+  icon: string;
+}
 
-  // Separate skill data
-  const technicalSkills = [
-    { id: 'python', name: 'Python', level: 7, maxLevel: 10, description: 'Python is the first langugae that I learned, I used to make school projects using it', color: 'chocolate', icon: '🍪' },
-    { id: 'react', name: 'React', level: 8, maxLevel: 10, description: 'Crafting delightful components', color: 'chocolate', icon: '🍪' },
-    { id: 'clang', name: 'C Programming Language', level: 6.5, maxLevel: 10, description: 'Crafting delightful components', color: 'chocolate', icon: '🍪' },
+const CozyBrownSkills: React.FC = () => {
+  const [activeSkill, setActiveSkill] = useState<string | null>(null);
+  const [skillPoints, setSkillPoints] = useState<number>(5);
 
+  const technicalSkills: Skill[] = [
+    { id: 'python', name: 'Python', level: 7, maxLevel: 10, description: 'Python is the first language that I learned, I used to make school projects using it', color: 'chocolate', icon: '🍪' },
+    { id: 'react', name: 'React', level: 8, maxLevel: 10, description: 'Making a good components and useful for frontend development', color: 'chocolate', icon: '🍪' },
+    { id: 'clang', name: 'C Programming Language', level: 6.5, maxLevel: 10, description: 'Low-Level Programming Langauge good for manipulating the system of a computer', color: 'chocolate', icon: '🍪' },
     { id: 'javascript', name: 'JavaScript and TypeScript', level: 7, maxLevel: 10, description: 'Brewing powerful experiences', color: 'caramel', icon: '☕' },
     { id: 'css', name: 'CSS/Tailwind', level: 8, maxLevel: 10, description: 'Styling beautiful interfaces', color: 'mocha', icon: '🍩' },
-    // Add more technical skills as needed
+    { id: 'gdscript', name: 'GDScript', level: 6, maxLevel: 10, description: 'Scripting for game development with Godot engine', color: 'mocha', icon: '🎮' },
+    { id: 'figma', name: 'Figma', level: 7, maxLevel: 10, description: 'Designing user interfaces and prototypes', color: 'caramel', icon: '🎨' },
   ];
 
-  const softSkills = [
+  const softSkills: Skill[] = [
     { id: 'communication', name: 'Communication', level: 7, maxLevel: 10, description: 'Clear, thoughtful expression', color: 'caramel', icon: '💬' },
     { id: 'teamwork', name: 'Teamwork', level: 9, maxLevel: 10, description: 'Collaborating effectively', color: 'mocha', icon: '🤝' },
     { id: 'adaptability', name: 'Adaptability', level: 8, maxLevel: 10, description: 'Thrives in change', color: 'chocolate', icon: '🌱' },
-    // Add more soft skills as needed
+    { id: 'hardworking', name: 'Hard-Working', level: 9, maxLevel: 10, description: 'Persistent, dedicated, and always giving 100%', color: 'honey', icon: '💪' },
+    { id: 'creativity', name: 'Creativity', level: 8, maxLevel: 10, description: 'Brings fresh ideas and innovative solutions', color: 'vanilla', icon: '🎨' },
+    { id: 'time-management', name: 'Time Management', level: 8, maxLevel: 10, description: 'Effectively prioritizes tasks and meets deadlines', color: 'latte', icon: '⏰' },
+    { id: 'problem-solving', name: 'Problem Solving', level: 9, maxLevel: 10, description: 'Analyzes challenges and finds effective solutions', color: 'espresso', icon: '🧠' },
   ];
 
-    const handleSkillClick = (skill) => {
-        setActiveSkill(skill.id === activeSkill ? null : skill.id);
-    };
+  const handleSkillClick = (skill: Skill) => {
+    setActiveSkill(skill.id === activeSkill ? null : skill.id);
+  };
 
-    const upgradeSkill = (skillId) => {
-        const allSkills = [...technicalSkills, ...softSkills];
-        const skillToUpgrade = allSkills.find(s => s.id === skillId);
-        if (skillPoints > 0 && skillToUpgrade.level < skillToUpgrade.maxLevel) {
-        skillToUpgrade.level += 1;
-        setSkillPoints(skillPoints - 1);
-        }
-    };
+  const upgradeSkill = (skillId: string) => {
+    const allSkills: Skill[] = [...technicalSkills, ...softSkills];
+    const skillToUpgrade = allSkills.find((s) => s.id === skillId);
+    if (skillPoints > 0 && skillToUpgrade && skillToUpgrade.level < skillToUpgrade.maxLevel) {
+      skillToUpgrade.level += 1;
+      setSkillPoints((prev) => prev - 1);
+    }
+  };
 
-    const getColorClass = (color) => ({
-        chocolate: 'bg-amber-700 border-amber-800',
-        caramel: 'bg-amber-500 border-amber-600',
-        mocha: 'bg-amber-900 border-amber-950',
+  const getColorClass = (color: string): string =>
+    ({
+      chocolate: 'bg-amber-700 border-amber-800',
+      caramel: 'bg-amber-500 border-amber-600',
+      mocha: 'bg-amber-900 border-amber-950',
+      honey: 'bg-yellow-500 border-yellow-600',
+      vanilla: 'bg-yellow-200 border-yellow-300',
+      latte: 'bg-yellow-300 border-yellow-400',
+      espresso: 'bg-yellow-800 border-yellow-900',
     }[color] || 'bg-amber-600 border-amber-700');
 
-    const getBgColorClass = (color) => ({
-        chocolate: 'bg-amber-100',
-        caramel: 'bg-amber-50',
-        mocha: 'bg-amber-100',
+  const getBgColorClass = (color: string): string =>
+    ({
+      chocolate: 'bg-amber-100',
+      caramel: 'bg-amber-50',
+      mocha: 'bg-amber-100',
     }[color] || 'bg-amber-50');
 
-    const getColorTextClass = (color) => ({
-        chocolate: 'text-amber-700',
-        caramel: 'text-amber-500',
-        mocha: 'text-amber-900',
+  const getColorTextClass = (color: string): string =>
+    ({
+      chocolate: 'text-amber-700',
+      caramel: 'text-amber-500',
+      mocha: 'text-amber-900',
     }[color] || 'text-amber-600');
 
-  const CookieCrumb = ({ filled, color }) => {
-    const crumbColor = filled
-      ? getColorTextClass(color)
-      : 'text-amber-200';
+  const CookieCrumb: React.FC<{ filled: boolean; color: string }> = ({ filled, color }) => {
+    const crumbColor = filled ? getColorTextClass(color) : 'text-amber-200';
     return <span className={`text-lg ${crumbColor}`}>●</span>;
   };
 
-  const renderSkillCard = (skill) => (
+  const renderSkillCard = (skill: Skill) => (
     <div key={skill.id} className="relative mb-4">
       <div
         className={`bg-amber-50 rounded-2xl border-3 ${
@@ -107,30 +124,15 @@ const CozyBrownSkills = () => {
   return (
     <div className="h-[600px] w-full p-6 rounded-3xl flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-      <div className="flex justify-between items-center mb-4">
+      <div className="hidden md:flex justify-between items-center mb-4">
         <div className="flex items-center bg-amber-100 px-4 py-2 rounded-2xl border-2 border-amber-300">
-
-        <div className="flex items-center">
           <span className="text-3xl mr-2">🧁</span>
           <h1 className="text-3xl font-bold text-amber-800 tracking-wide">Technical Skills</h1>
         </div>
+        <div className="flex items-center bg-amber-100 px-4 py-2 rounded-2xl border-2 border-amber-300">
+          <span className="text-3xl mr-2">💡</span>
+          <h1 className="text-3xl font-bold text-amber-800 tracking-wide">Soft Skills</h1>
         </div>
-      </div>
-
-
-
-      <div className="flex items-center  px-4 py-2 rounded-2xl">
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center bg-amber-100 px-4 py-2 rounded-2xl border-2 border-amber-300">
-
-          <div className="flex items-center">
-            <span className="text-3xl mr-2">🧁</span>
-            <h1 className="text-3xl font-bold text-amber-800 tracking-wide">Soft Skills</h1>
-          </div>
-          </div>
-        </div>
-      </div>
       </div>
 
       {/* Scrollable Columns */}
@@ -144,8 +146,6 @@ const CozyBrownSkills = () => {
           {softSkills.map(renderSkillCard)}
         </div>
       </div>
-
-
     </div>
   );
 };

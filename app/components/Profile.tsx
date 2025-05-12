@@ -10,7 +10,7 @@ export default function GameCharacterCard() {
         {/* Header with level and XP */}
         <div className="bg-gradient-to-r from-amber-600 to-amber-800 text-white p-2 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="bg-amber-300 text-amber-900 rounded-full h-8 w-8 flex items-center justify-center font-bold">24</div>
+            <div className="bg-amber-300 text-amber-900 rounded-full h-8 w-8 flex items-center justify-center font-bold">21</div>
             <span className="font-semibold">LEVEL</span>
           </div>
           <div className="text-xs">
@@ -18,7 +18,7 @@ export default function GameCharacterCard() {
           </div>
           <div className="flex items-center gap-1">
             <Coffee size={16} />
-            <span className="font-semibold">42</span>
+            <span className="font-semibold">31</span>
           </div>
         </div>
 
@@ -50,14 +50,14 @@ export default function GameCharacterCard() {
               <span className="font-medium text-yellow-800">CS Student</span>
             </div>
           </div>
+          <div className="hidden sm:block mt-3 bg-amber-100 p-3 rounded-lg border-2 border-amber-300 shadow-md">
+  <h3 className="font-bold text-amber-800">CURRENT QUEST:</h3>
+  <p className="text-amber-700 mb-2">Applying For Internship Position</p>
+  <div className="w-full bg-amber-300 rounded-full h-2 mt-1">
+    <div className="bg-amber-600 h-2 rounded-full" style={{ width: '65%' }}></div>
+  </div>
+</div>
 
-          <div className="mt-3 bg-amber-100 p-3 rounded-lg border-2 border-amber-300 shadow-md">
-            <h3 className="font-bold text-amber-800">CURRENT QUEST:</h3>
-            <p className="text-amber-700 mb-2">Applying For Internship Position</p>
-            <div className="w-full bg-amber-300 rounded-full h-2 mt-1">
-              <div className="bg-amber-600 h-2 rounded-full" style={{ width: '65%' }}></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

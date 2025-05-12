@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Heart, Star, Code, Link, Grid, Box, Gamepad } from 'lucide-react';
 
 // Define the Project interface
@@ -68,7 +68,7 @@ const initialProjects: Project[] = [
   {
     id: 6,
     name: 'Farm-On-table',
-    description:'Designed and developed the backend infrastructure and Database Model for Farm-on-Table using JavaScript,MongoDB,Express.js and Node.js, a web platform facilitating direct transactions between farmers and consumers, independently using MERN Stac',
+    description:'Designed and developed the backend infrastructure and Database Model for Farm-on-Table using JavaScript,MongoDB,Express.js and Node.js, a web platform facilitating direct transactions between farmers and consumers, independently using MERN Stack',
     technologies: ['MongoDB', 'Atlas','Tailwind', 'TypeScript', 'Node.js'],
     difficulty: 'Hard',
     icon: <Gamepad className="w-12 h-12" />,
@@ -129,6 +129,14 @@ const Projects: React.FC = () => {
       };
     }
   };
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+  
 
   return (
     <div className="h-[600px] w-full p-6 rounded-3xl flex flex-col">
@@ -190,8 +198,8 @@ const Projects: React.FC = () => {
 
         {/* Project Details Modal */}
         {selectedProject && (
-          <div className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full relative pointer-events-auto shadow-2xl">
+          <div className="absolute inset-0 z-50 backdrop-blur-sm bg-white/30 pointer-events-none flex items-center justify-center ">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full relative pointer-events-auto shadow-2xl">
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedProject(null)}
