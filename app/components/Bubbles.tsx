@@ -51,10 +51,16 @@ export default function Bubbles() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     
+    
     if (!ctx) return;
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      
 
       // Update and draw each bubble
       const updatedBubbles = bubbles.map(bubble => {
