@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Trophy, Star, Heart, Sparkles } from 'lucide-react';
 
 const FlipWords = ({ words }) => {
   const [index, setIndex] = useState(0);

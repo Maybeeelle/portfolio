@@ -9,9 +9,8 @@ import ContactMe from './components/Contact'
 import AboutMe from './components/AboutMe'
 import Bubbles from './components/Bubbles'
 import IntroOverlay from './components/Intro'
-import { Playfair_Display, Comic_Neue } from 'next/font/google'
+import { Comic_Neue } from 'next/font/google'
 
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700', '900'] })
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
 const Home = () => {
@@ -21,7 +20,7 @@ const Home = () => {
   const [seeContacts, setSeeContacts] = useState(false)
 
   // Function to create bubbles when clicking options
-  const handleOptionClick = (optionFunction, element, color) => {
+  const handleOptionClick = (optionFunction:any, element:any, color:any) => {
     // Call the option's state update function
     optionFunction();
     

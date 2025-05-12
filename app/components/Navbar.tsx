@@ -2,7 +2,6 @@ import React from 'react';
 import { FaFacebookF, FaInstagram, FaGithub } from 'react-icons/fa';
 import { Playfair_Display, Comic_Neue } from 'next/font/google'
 
-const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700', '900'] })
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
 const Navbar = () => {

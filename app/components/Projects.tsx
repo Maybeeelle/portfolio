@@ -77,7 +77,7 @@ const initialProjects: Project[] = [
 ];
 
 const Projects: React.FC = () => {
-  const projects = useState<Project[]>(initialProjects);
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const getDifficultyColor = (difficulty: string) => {

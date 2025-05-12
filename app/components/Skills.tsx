@@ -38,14 +38,6 @@ const CozyBrownSkills: React.FC = () => {
     setActiveSkill(skill.id === activeSkill ? null : skill.id);
   };
 
-  const upgradeSkill = (skillId: string) => {
-    const allSkills: Skill[] = [...technicalSkills, ...softSkills];
-    const skillToUpgrade = allSkills.find((s) => s.id === skillId);
-    if (skillPoints > 0 && skillToUpgrade && skillToUpgrade.level < skillToUpgrade.maxLevel) {
-      skillToUpgrade.level += 1;
-      setSkillPoints((prev) => prev - 1);
-    }
-  };
 
   const getColorClass = (color: string): string =>
     ({

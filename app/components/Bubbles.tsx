@@ -91,7 +91,7 @@ export default function Bubbles() {
   };
   
   // Draw a bubble
-  const drawBubble = (ctx, bubble) => {
+  const drawBubble = (ctx:any, bubble:any) => {
     ctx.beginPath();
     ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
     ctx.fillStyle = bubble.color.replace(')', `, ${bubble.opacity})`);
