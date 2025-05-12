@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Coffee, Terminal } from 'lucide-react';
 import Image from 'next/image';

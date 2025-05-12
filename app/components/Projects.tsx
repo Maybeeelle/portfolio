@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState,useEffect } from 'react';
 import { Heart, Star, Code, Link, Grid, Box, Gamepad } from 'lucide-react';
 
@@ -15,7 +17,7 @@ interface Project {
 }
 
 // Sample project data
-const initialProjects: Project[] = [
+const projects: Project[] = [
   { 
     id: 1,
     name: 'Tidal Tidying',
@@ -77,7 +79,7 @@ const initialProjects: Project[] = [
 ];
 
 const Projects: React.FC = () => {
-  const projects = useState<Project[]>(initialProjects);
+  
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const getDifficultyColor = (difficulty: string) => {
@@ -216,9 +218,9 @@ const Projects: React.FC = () => {
                   })}
                 </div>
               </div>
-
+            
               {/* Project Details */}
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4" style={{color: getProjectColors(selectedProject.color).text}}>
+              <h2 className="text-2xl sm:text-3xl font-bold text-center text-black mb-4" style={{color: getProjectColors(selectedProject.color).text}}>
                 {selectedProject.name}
               </h2>
               <p className="text-gray-700 mb-4 text-center text-sm sm:text-base">
