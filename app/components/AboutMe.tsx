@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sparkles } from 'lucide-react'
 import FlipWords from '../ui/Flipwords'
-import { Playfair_Display, Comic_Neue,Coiny } from 'next/font/google'
+import { Playfair_Display, Comic_Neue} from 'next/font/google'
 
 const playfair = Playfair_Display({ subsets: ['latin'], weight: ['400', '700', '900'] })
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
