@@ -1,5 +1,6 @@
-'use client'
-import React, { useState } from 'react'
+'use client' // Ensure you're marking this file as a client component in Next.js
+
+import React, { useState, MouseEventHandler, ReactElement } from 'react'
 import Navbar from './components/Navbar'
 import { Crown, Star } from 'lucide-react'
 import GameCharacterCard from './components/Profile'
@@ -14,13 +15,16 @@ import { Comic_Neue } from 'next/font/google'
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
 const Home = () => {
-  const [seeAboutMe, setSeeAboutMe] = useState(true)
-  const [seeSkills, setSeeSkills] = useState(false)
-  const [seeProjects, setSeeProjects] = useState(false)
-  const [seeContacts, setSeeContacts] = useState(false)
+  const [seeAboutMe, setSeeAboutMe] = useState<boolean>(true)
+  const [seeSkills, setSeeSkills] = useState<boolean>(false)
+  const [seeProjects, setSeeProjects] = useState<boolean>(false)
+  const [seeContacts, setSeeContacts] = useState<boolean>(false)
+
+  // Define a type for the click event handler
+  type OptionClickHandler = (optionFunction: () => void, element: HTMLElement | null, color: string) => void;
 
   // Function to create bubbles when clicking options
-  const handleOptionClick = (optionFunction:any, element:any, color:any) => {
+  const handleOptionClick: OptionClickHandler = (optionFunction, element, color) => {
     // Call the option's state update function
     optionFunction();
     
@@ -36,40 +40,41 @@ const Home = () => {
     }
   };
 
-  const handleAboutMeClick = (e:any) => {
+  // Define the event handlers with proper types
+  const handleAboutMeClick: MouseEventHandler<HTMLDivElement> = (e) => {
     handleOptionClick(() => {
       setSeeAboutMe(true)
       setSeeContacts(false)
       setSeeProjects(false)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(350, 100%, 75%'); // Pink color
+    }, e.currentTarget, 'hsla(350, 100%, 75%)'); // Pink color
   }
 
-  const handleSkillsClick = (e:any) => {
+  const handleSkillsClick: MouseEventHandler<HTMLDivElement> = (e) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(false)
       setSeeProjects(false)
       setSeeSkills(true)
-    }, e.currentTarget, 'hsla(280, 100%, 75%'); // Purple color
+    }, e.currentTarget, 'hsla(280, 100%, 75%)'); // Purple color
   }
 
-  const handleProjectsClick = (e:any) => {
+  const handleProjectsClick: MouseEventHandler<HTMLDivElement> = (e) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(false)
       setSeeProjects(true)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(210, 100%, 75%'); // Blue color
+    }, e.currentTarget, 'hsla(210, 100%, 75%)'); // Blue color
   }
 
-  const handleSeeContactClick = (e:any) => {
+  const handleSeeContactClick: MouseEventHandler<HTMLDivElement> = (e) => {
     handleOptionClick(() => {
       setSeeAboutMe(false)
       setSeeContacts(true)
       setSeeProjects(false)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(120, 100%, 75%'); // Green color
+    }, e.currentTarget, 'hsla(120, 100%, 75%)'); // Green color
   }
 
   const options = [
@@ -79,7 +84,7 @@ const Home = () => {
     { title: 'Contact Me', color: 'green', active: seeContacts, onClick: handleSeeContactClick },
   ]
 
-  const renderSection = () => {
+  const renderSection = (): ReactElement | null => {
     const Component =
       seeAboutMe ? <AboutMe /> :
       seeSkills ? <Skills /> :
@@ -89,7 +94,6 @@ const Home = () => {
     return (
       <div className="flex flex-col-reverse md:flex-row pt-0 mt-0 ">
         {/* Character Card - appears on top on small screens, right on large */}
-
         <div className="flex-1 bg-white border-6 border-[#A0522D] rounded-xl shadow-md text-center flex flex-col justify-center relative m-4 p-4 md:order-1">
           <div className="absolute inset-2 border-6 border-dashed border-[#e7a789] rounded-xl z-0"></div>
           {Component}
@@ -103,7 +107,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-y-auto">
-      <IntroOverlay/>
+      <IntroOverlay />
       <Bubbles />
       <Navbar />
       <div className="flex-[3] bg-[#FFFDD0] p-2 flex flex-col overflow-hidden justify-center">
