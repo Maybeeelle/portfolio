@@ -165,9 +165,10 @@ const Projects: React.FC = () => {
               >
                 {/* Project Icon */}
                 <div className={`mb-3 sm:mb-4 ${colors.iconBg} rounded-full p-3 sm:p-4`}>
-                  {React.cloneElement(project.icon as React.ReactElement, {
+                  {React.cloneElement(project.icon as React.ReactElement<{ className?: string }>, {
                     className: `w-8 h-8 sm:w-12 sm:h-12 ${colors.text}`
                   })}
+
                 </div>
 
                 {/* Project Name */}
@@ -210,10 +211,10 @@ const Projects: React.FC = () => {
 
               {/* Project Icon */}
               <div className="flex justify-center mb-4 sm:mb-6">
-                <div className={`${getProjectColors(selectedProject.color).iconBg} rounded-full p-4 sm:p-6`}>
-                  {React.cloneElement(selectedProject.icon as React.ReactElement, {
-                    className: `w-12 h-12 sm:w-16 sm:h-16 ${getProjectColors(selectedProject.color).text}`
-                  })}
+                <div className={`${getProjectColors(selectedProject.color).iconBg} rounded-full p-4 sm:p-6`}>                  
+                {React.cloneElement(selectedProject.icon as React.ReactElement<{ className?: string }>, {
+                  className: `w-8 h-8 sm:w-12 sm:h-12 ${(selectedProject.colors).text}`
+                })}
                 </div>
               </div>
             
