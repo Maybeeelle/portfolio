@@ -5,7 +5,7 @@ import emailjs from 'emailjs-com';
 const ContactMe = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
