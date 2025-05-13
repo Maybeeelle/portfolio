@@ -71,7 +71,7 @@ const ContactMe = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              rows="4"
+              rows={4}
               className="mt-1 p-3 rounded-xl border-2 border-green-300 bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
               required
             ></textarea>
