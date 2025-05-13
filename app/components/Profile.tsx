@@ -47,7 +47,7 @@ export default function GameCharacterCard() {
           <div className="bg-yellow-100 px-4 py-1 rounded-full border-2 border-yellow-400 shadow-md mb-4 inline-block">
             <div className="flex items-center gap-2">
               <Terminal size={16} className="text-yellow-700" />
-              <span className="font-medium text-yellow-800">CS Student</span>
+              <span className="font-medium text-yellow-800">Computer Science Student</span>
             </div>
           </div>
           <div className="hidden sm:block mt-3 bg-amber-100 p-3 rounded-lg border-2 border-amber-300 shadow-md">

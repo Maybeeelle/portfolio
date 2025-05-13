@@ -92,38 +92,38 @@ const Projects: React.FC = () => {
   const getProjectColors = (color: string) => {
     switch (color) {
       case 'purple': return {
-        bg: 'bg-purple-50 hover:bg-purple-100',
-        border: 'border-purple-200 hover:border-purple-300',
+        bg: 'bg-purple-200 hover:bg-purple-100',
+        border: 'border-purple-300 hover:border-purple-300',
         text: 'text-purple-600',
         iconBg: 'bg-purple-100'
       };
       case 'green': return {
-        bg: 'bg-green-50 hover:bg-green-100',
-        border: 'border-green-200 hover:border-green-300',
+        bg: 'bg-green-200 hover:bg-green-100',
+        border: 'border-green-300 hover:border-green-300',
         text: 'text-green-600',
         iconBg: 'bg-green-100'
       };
       case 'yellow': return {
-        bg: 'bg-yellow-50 hover:bg-yellow-100',
-        border: 'border-yellow-200 hover:border-yellow-300',
+        bg: 'bg-yellow-200 hover:bg-yellow-100',
+        border: 'border-yellow-300 hover:border-yellow-300',
         text: 'text-yellow-600',
         iconBg: 'bg-yellow-100'
       };
       case 'pink': return {
-        bg: 'bg-pink-50 hover:bg-pink-100',
-        border: 'border-pink-200 hover:border-pink-300',
+        bg: 'bg-pink-200 hover:bg-pink-100',
+        border: 'border-pink-300 hover:border-pink-300',
         text: 'text-pink-600',
         iconBg: 'bg-pink-100'
       };
       case 'blue': return {
-        bg: 'bg-blue-50 hover:bg-blue-100',
-        border: 'border-blue-200 hover:border-blue-300',
+        bg: 'bg-blue-200 hover:bg-blue-100',
+        border: 'border-blue-300 hover:border-blue-300',
         text: 'text-blue-600',
         iconBg: 'bg-blue-100'
       };
       default: return {
-        bg: 'bg-gray-50 hover:bg-gray-100',
-        border: 'border-gray-200 hover:border-gray-300',
+        bg: 'bg-gray-200 hover:bg-gray-100',
+        border: 'border-gray-300 hover:border-gray-300',
         text: 'text-gray-600',
         iconBg: 'bg-gray-100'
       };
@@ -143,9 +143,10 @@ const Projects: React.FC = () => {
       <div className="container mx-auto">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-purple-600 mb-8 sm:mb-12 
           drop-shadow-lg flex items-center justify-center space-x-2 sm:space-x-4">
-          <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" fill="currentColor" />
-          <span>Project Adventures</span>
-          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-pink-400" fill="currentColor" />
+          <div className="flex items-center bg-amber-100 px-4 py-2 rounded-2xl border-2 border-amber-300">
+          <span className="text-3xl mr-2">💡</span>
+          <h1 className="text-3xl font-bold text-amber-800 tracking-wide">Project Adventure</h1>
+        </div>
         </h1>
 
         <div className="max-h-[480px] overflow-y-auto pr-2">
