@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react'
 import { Sparkles } from 'lucide-react'
 import FlipWords from '../ui/Flipwords'

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaGithub } from 'react-icons/fa';
 import { Comic_Neue } from 'next/font/google'

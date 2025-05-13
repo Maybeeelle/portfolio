@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 'use client' // Ensure you're marking this file as a client component in Next.js
 
 import React, { useState, MouseEventHandler, ReactElement } from 'react'

@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 
 import React, { useEffect, useState } from 'react';
 import GameCharacterCard from './Profile'; // adjust path

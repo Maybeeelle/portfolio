@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useState,useEffect } from 'react';
 import { Heart, Star, Code, Link, Grid, Box, Gamepad } from 'lucide-react';
 
