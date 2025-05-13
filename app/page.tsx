@@ -1,4 +1,4 @@
-'use client' // Ensure you're marking this file as a client component in Next.js
+'use client'
 
 import React, { useState, MouseEventHandler, ReactElement } from 'react'
 import Navbar from './components/Navbar'
@@ -14,40 +14,41 @@ import { Comic_Neue } from 'next/font/google'
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: ['400', '700'] })
 
+// Define type for color keys
+type Color = 'pink' | 'purple' | 'blue' | 'green'
+
+interface Option {
+  title: string
+  color: Color
+  active: boolean
+  onClick: MouseEventHandler<HTMLDivElement>
+}
+
 const Home = () => {
   const [seeAboutMe, setSeeAboutMe] = useState<boolean>(true)
   const [seeSkills, setSeeSkills] = useState<boolean>(false)
   const [seeProjects, setSeeProjects] = useState<boolean>(false)
   const [seeContacts, setSeeContacts] = useState<boolean>(false)
 
-  // Define a type for the click event handler
-  type OptionClickHandler = (optionFunction: () => void, element: HTMLElement | null, color: string) => void;
+  type OptionClickHandler = (optionFunction: () => void, element: HTMLElement | null, color: string) => void
 
-  // Function to create bubbles when clicking options
   const handleOptionClick: OptionClickHandler = (optionFunction, element, color) => {
-    // Call the option's state update function
-    optionFunction();
-    
-    // Create bubbles at the click position if the global function exists
+    optionFunction()
     if (element && window.createBubblesAtPosition) {
-      // Get the element's position
-      const rect = element.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      
-      // Create bubbles with color based on the option
-      window.createBubblesAtPosition(x, y, color);
+      const rect = element.getBoundingClientRect()
+      const x = rect.left + rect.width / 2
+      const y = rect.top + rect.height / 2
+      window.createBubblesAtPosition(x, y, color)
     }
-  };
+  }
 
-  // Define the event handlers with proper types
   const handleAboutMeClick: MouseEventHandler<HTMLDivElement> = (e) => {
     handleOptionClick(() => {
       setSeeAboutMe(true)
       setSeeContacts(false)
       setSeeProjects(false)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(350, 100%, 75%)'); // Pink color
+    }, e.currentTarget, 'hsla(350, 100%, 75%)')
   }
 
   const handleSkillsClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -56,7 +57,7 @@ const Home = () => {
       setSeeContacts(false)
       setSeeProjects(false)
       setSeeSkills(true)
-    }, e.currentTarget, 'hsla(280, 100%, 75%)'); // Purple color
+    }, e.currentTarget, 'hsla(280, 100%, 75%)')
   }
 
   const handleProjectsClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -65,7 +66,7 @@ const Home = () => {
       setSeeContacts(false)
       setSeeProjects(true)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(210, 100%, 75%)'); // Blue color
+    }, e.currentTarget, 'hsla(210, 100%, 75%)')
   }
 
   const handleSeeContactClick: MouseEventHandler<HTMLDivElement> = (e) => {
@@ -74,10 +75,10 @@ const Home = () => {
       setSeeContacts(true)
       setSeeProjects(false)
       setSeeSkills(false)
-    }, e.currentTarget, 'hsla(120, 100%, 75%)'); // Green color
+    }, e.currentTarget, 'hsla(120, 100%, 75%)')
   }
 
-  const options = [
+  const options: Option[] = [
     { title: 'About Me', color: 'pink', active: seeAboutMe, onClick: handleAboutMeClick },
     { title: 'Know my skills', color: 'purple', active: seeSkills, onClick: handleSkillsClick },
     { title: 'See Projects', color: 'blue', active: seeProjects, onClick: handleProjectsClick },
@@ -92,8 +93,7 @@ const Home = () => {
       seeContacts ? <ContactMe /> : null
 
     return (
-      <div className="flex flex-col-reverse md:flex-row pt-0 mt-0 ">
-        {/* Character Card - appears on top on small screens, right on large */}
+      <div className="flex flex-col-reverse md:flex-row pt-0 mt-0">
         <div className="flex-1 bg-white border-6 border-[#A0522D] rounded-xl shadow-md text-center flex flex-col justify-center relative m-4 p-4 md:order-1">
           <div className="absolute inset-2 border-6 border-dashed border-[#e7a789] rounded-xl z-0"></div>
           {Component}
@@ -111,13 +111,10 @@ const Home = () => {
       <Bubbles />
       <Navbar />
       <div className="flex-[3] bg-[#FFFDD0] p-2 flex flex-col overflow-hidden justify-center">
-        {/* Main Section */}
         {renderSection()}
-
-        {/* Bottom Buttons */}
         <div className={`flex flex-col md:flex-row gap-4 pb-4 ${comicNeue.className}`}>
           {options.map((item, index) => {
-            const colors = {
+            const colors: Record<Color, { bg: string; border: string; text: string }> = {
               pink: {
                 bg: item.active ? 'bg-gradient-to-br from-pink-300 to-pink-500' : 'bg-pink-200',
                 border: item.active ? 'border-yellow-400' : 'border-pink-400',
